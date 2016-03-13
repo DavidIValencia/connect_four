@@ -14,8 +14,6 @@ h1 {
   display: none;
   height: 70px;
   position: absolute;
-  margin-top: 10em;
-  margin-right: 10em;
 }
 
 .place-token{
@@ -104,3 +102,11 @@ body {
 }
 
 /*  END ROW  */
+#column1{
+ border: black solid 1px;
+
+}
+
+#column2{
+ border: black solid 1px;
+}
