@@ -7,10 +7,15 @@ h1 {
 
 .board {
   margin: 0 auto;
+  position: relative;
 }
 
 .token {
+  display: none;
   height: 70px;
+  position: absolute;
+  margin-top: 10em;
+  margin-right: 10em;
 }
 
 .place-token{
@@ -25,3 +30,77 @@ h1 {
 body {
   background-color: #F6F6F6;
 }
+
+/*  ROW 1  */
+
+#red-05 {
+  bottom: 3.15em;
+  left: 17px;
+}
+
+#red-15 {
+  bottom: 3.15em;
+  left: 116px;
+}
+
+#red-25 {
+  bottom: 3.15em;
+  left: 215px;
+}
+
+#red-35 {
+  bottom: 3.15em;
+  left: 314px;
+}
+
+#red-45 {
+  bottom: 3.15em;
+  left: 413px;
+}
+
+#red-55 {
+  bottom: 3.15em;
+  left: 512px;
+}
+
+#red-65 {
+  bottom: 3.15em;
+  left: 611px;
+}
+
+#black-05 {
+  bottom: 3.15em;
+  left: 17px;
+}
+
+#black-15 {
+  bottom: 3.15em;
+  left: 116px;
+}
+
+#black-25 {
+  bottom: 3.15em;
+  left: 215px;
+}
+
+#black-35 {
+  bottom: 3.15em;
+  left: 314px;
+}
+
+#black-45 {
+  bottom: 3.15em;
+  left: 413px;
+}
+
+#black-55 {
+  bottom: 3.15em;
+  left: 512px;
+}
+
+#black-65 {
+  bottom: 3.15em;
+  left: 611px;
+}
+
+/*  END ROW  */
