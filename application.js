@@ -13,9 +13,7 @@
 //   var board = Array.from(new Array(7), () => Array.from(new Array(6), () => 'a'));
 // }
 
-
-$(document).ready(function(){
-	window.Game = function(){
+    	window.Game = function(){
 		this.board = new Array(6).fill(new Array(7).fill(null))
 		this.players = ["red", "yellow"]
 		this.currentPlayer = "red"
