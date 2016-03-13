@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+  <!-- <script src="javascripts/vendor/jquery-2.1.1.min.js"></script>
+  <script src="javascripts/src/typed-objects.js"></script> -->
+  <!-- feel free to replace typed-objects with the plain-old-js-objects,
+  depending on how you implement your view.js -->
+
+  <link rel="stylesheet" type="text/css" href="connect.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="application.js" ></script>
+
 
 	<script type="text/javascript" src="./application.js"></script>
   <script type="text/javascript" src="./game_js.js"></script>
 </head>
 <body>
+  <header>
+    <h1>Who can play the best connect four<h1>
+  </header>
+
+  <div>
+   <img class='token' src="pics/circle-512.gif"/>
+   <img class='token' src="pics/circle-513.gif"/>
+  </div>
+
+  <table class="board">
+    <tr>
+      <td><img src="pics/connect4column.gif"/></td>
+      <td><img src="pics/connect4column.gif"/></td>
+      <td><img src="pics/connect4column.gif"/></td>
+      <td><img src="pics/connect4column.gif"/></td>
+      <td><img src="pics/connect4column.gif"/></td>
+      <td><img src="pics/connect4column.gif"/></td>
+      <td><img src="pics/connect4column.gif"/></td>
+    </tr>
+    <tr>
+      <td><button type="submit" class="place-token">Place token</button></td>
+      <td><button type="submit" class="place-token">Place token</button></td>
+      <td><button type="submit" class="place-token">Place token</button></td>
+      <td><button type="submit" class="place-token">Place token</button></td>
+      <td><button type="submit" class="place-token">Place token</button></td>
+      <td><button type="submit" class="place-token">Place token</button></td>
+      <td><button type="submit" class="place-token">Place token</button></td>
+    </tr>
+  </table>
+
+
 
 </body>
 </html>
