@@ -7,10 +7,14 @@ h1 {
 
 .board {
   margin: 0 auto;
+  text-align: center
 }
 
 .token {
-  height: 70px;
+  height: 76.5px;
+  width: 76px;
+  margin-left: 10px;
+  margin-bottom: 3px;
 }
 
 .place-token{
@@ -20,8 +24,20 @@ h1 {
   text-decoration: none;
   border-radius: 10px;
   color: #FFFFE6;
+  display: inline;
 }
 
 body {
   background-color: #F6F6F6;
 }
+
+.column {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  background-image: url("pics/connect4column.gif");
+  width: 95px;
+  height: 480px;
+  vertical-align: top;
+}
+
+

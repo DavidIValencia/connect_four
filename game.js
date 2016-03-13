@@ -1,4 +1,4 @@
-Game = function(){
+window.Game = function(){
     this.board = new Array(6).fill(0).map(function(row){ return new Array(7).fill(null)})
     this.players = ["red", "black"]
     this.currentPlayer = "red"
