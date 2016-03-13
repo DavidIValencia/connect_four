@@ -6,7 +6,7 @@ $(document).ready(function(){
 	}
 	Game.prototype.placePiece = function(column) {
 		for(var row= 0; row < this.board.length; row ++) {
-			if(this.board[row + 1][column] !== null || row == 5) {
+			if(row == 5 || this.board[row + 1][column] !== null) {
 				this.board[row][column] = this.currentPlayer
 				this.switchPlayers()
 			}
