@@ -1,21 +1,8 @@
-
-// var game = function(row, column) {
-//   var counter = 1
-//   var color = "none"
-//   if(counter % 2 == 0){
-//     color = "red";
-//     }
-//     else{
-//       color = "black";
-//     };
-//   board[row][column] = color
-//   counter++
-//   var board = Array.from(new Array(7), () => Array.from(new Array(6), () => 'a'));
-// }
-
-    	window.Game = function(){
+// $(document).ready(function(){
+// 	window.
+	Game = function(){
 		this.board = new Array(6).fill(new Array(7).fill(null))
-		this.players = ["red", "yellow"]
+		this.players = ["red", "black"]
 		this.currentPlayer = "red"
 	}
 	Game.prototype.placePiece = function(column) {
@@ -28,7 +15,7 @@
 	}
 	Game.prototype.switchPlayers = function() {
 		if(this.currentPlayer === "red"){
-			this.currentPlayer = "yellow"
+			this.currentPlayer = "black"
 		} else {
 			this.currentPlayer = "red"
 		}
@@ -96,16 +83,16 @@
 			var redWins = list.slice(i, i+4).every(function(square){
 				return square === "red"
 			})
-			var yellowWins = list.slice(i, i+4).every(function(square){
-				return square === "yellow"
+			var blackWins = list.slice(i, i+4).every(function(square){
+				return square === "black"
 			})
 			if (redWins) {
 				return "red"
-			}else if(yellowWins) {
-				return "yellow"
+			}else if(blackWins) {
+				return "black"
 			}
 		}
 		return false
 	}
-});
+// });
 
