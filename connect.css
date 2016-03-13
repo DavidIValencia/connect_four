@@ -11,6 +11,7 @@ h1 {
 
 .token {
   height: 70px;
+  display: block;
 }
 
 .place-token{
@@ -24,4 +25,13 @@ h1 {
 
 body {
   background-color: #F6F6F6;
+}
+
+#column1{
+ border: black solid 1px;
+
+}
+
+#column2{
+ border: black solid 1px;
 }
