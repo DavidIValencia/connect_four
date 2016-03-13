@@ -1,14 +1,15 @@
 $(document).ready(function(){
 	window.Game = function(){
-		this.board = new Array(6).fill(new Array(7).fill(null))
+		this.board = new Array(6).fill(0).map(function(row){ return new Array(7).fill(null)})
 		this.players = ["red", "yellow"]
 		this.currentPlayer = "red"
 	}
 	Game.prototype.placePiece = function(column) {
 		for(var row= 0; row < this.board.length; row ++) {
-			if(this.board[row + 1][column] !== null || row == 5) {
+			if(row == 5 || this.board[row + 1][column] !== null) {
 				this.board[row][column] = this.currentPlayer
 				this.switchPlayers()
+				return
 			}
 		}
 	}
@@ -19,32 +20,37 @@ $(document).ready(function(){
 			this.currentPlayer = "red"
 		}
 	}
+
 	Game.prototype.winner = function() {
+		var self = this;
 		var winner = false; 
 		//check horizontal for four in a row
-		this.board.forEach(function(row){
-			if(hasConnectFour(row)) {
-				return hasConnectFour(row)
+		self.board.forEach(function(row){
+			if(self.hasConnectFour(row)) {
+				winner = self.hasConnectFour(row)
 			}
 		})
 		//check vertically for four in row
-		var transposedBoard = this.board[0].map(function(col, i) {
-				return this.board.map(function(row) {
+
+		var transposedBoard = self.board[0].map(function(col, i) {
+				return self.board.map(function(row) {
 					return row[i];
 				})
 			});
 		transposedBoard.forEach(function(row){
-			if(hasConnectFour(row)) {
-				return hasConnectFour(row)
+			if(self.hasConnectFour(row)) {
+				winner = self.hasConnectFour(row)
 			}
 		})
 
+
+
 		//check left diagonals for four in row.
 		var leftDiagBoardObject = {}
-		for(var rowIndex = 0; rowIndex < this.board.length; rowIndex ++) {
-			for (var colIndex = 0; colIndex < this.board[0].length; colIndex ++) {
+		for(var rowIndex = 0; rowIndex < self.board.length; rowIndex ++) {
+			for (var colIndex = 0; colIndex < self.board[0].length; colIndex ++) {
 				leftDiagBoardObject[rowIndex - colIndex] = leftDiagBoardObject[rowIndex - colIndex] || []
-				leftDiagBoardObject[rowIndex - colIndex].push(this.board[rowIndex][colIndex])
+				leftDiagBoardObject[rowIndex - colIndex].push(self.board[rowIndex][colIndex])
 			}
 		}
 		var leftDiagBoardList = []
@@ -53,17 +59,17 @@ $(document).ready(function(){
 		}
 
 		leftDiagBoardList.forEach(function(row){
-			if(hasConnectFour(row)) {
-				return hasConnectFour(row)
+			if(self.hasConnectFour(row)) {
+				winner = self.hasConnectFour(row)
 			}
 		})
 
 		//check right diagonals for four in row.
 		var rightDiagBoardObject = {}
-		for(var rowIndex = 0; rowIndex < this.board.length; rowIndex ++) {
-			for (var colIndex = 0; colIndex < this.board[0].length; colIndex ++) {
+		for(var rowIndex = 0; rowIndex < self.board.length; rowIndex ++) {
+			for (var colIndex = 0; colIndex < self.board[0].length; colIndex ++) {
 				rightDiagBoardObject[rowIndex + colIndex] = rightDiagBoardObject[rowIndex + colIndex] || []
-				rightDiagBoardObject[rowIndex + colIndex].push(this.board[rowIndex][colIndex])
+				rightDiagBoardObject[rowIndex + colIndex].push(self.board[rowIndex][colIndex])
 			}
 		}
 		var rightDiagBoardList = []
@@ -72,10 +78,11 @@ $(document).ready(function(){
 		}
 		
 		rightDiagBoardList.forEach(function(row){
-			if(hasConnectFour(row)) {
-				return hasConnectFour(row)
+			if(self.hasConnectFour(row)) {
+				winner = self.hasConnectFour(row)
 			}
 		})
+		return winner
 	}
 	Game.prototype.hasConnectFour = function(list) {
 		for(var i = 0; (i + 3) < list.length; i ++) {
