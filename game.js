@@ -4,11 +4,14 @@ window.Game = function(){
     this.currentPlayer = "red"
   }
   Game.prototype.placePiece = function(column) {
-    for(var row= 0; row < this.board.length; row ++) {
+    if(this.board[0][column]!== null) {
+      return false
+    }
+    for(var row = 0; row < this.board.length; row ++) {
       if(row == 5 || this.board[row + 1][column] !== null) {
         this.board[row][column] = this.currentPlayer
         this.switchPlayers()
-        return
+        return true
       }
     }
   }

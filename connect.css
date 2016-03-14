@@ -41,4 +41,26 @@ body {
   vertical-align: top;
 }
 
+#restart-wrapper {
+  margin: auto 0;
+  text-align: center;
+}
+
+#restart {
+  margin: 5px;
+  font: 0.8em Futura, 'Century Gothic', AppleGothic, sans-serif;
+  background-color: #FF66FF;
+  text-decoration: none;
+  border-radius: 10px;
+  color: #FFFFE6;
+  display: inline;
+}
+
+#game-status {
+  text-align: center;
+  font: 1.5em Futura, 'Century Gothic', AppleGothic, sans-serif;
+  color: #FF66FF;
+  height: 1em;
+}
+
 
