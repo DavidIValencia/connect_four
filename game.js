@@ -1,8 +1,9 @@
-Game = function(){
+  Game = function(){
     this.board = new Array(6).fill(0).map(function(row){ return new Array(7).fill(null)})
     this.players = ["red", "black"]
     this.currentPlayer = "red"
   }
+
   Game.prototype.placePiece = function(column) {
     for(var row= 0; row < this.board.length; row ++) {
       if(row == 5 || this.board[row + 1][column] !== null) {
@@ -13,6 +14,7 @@ Game = function(){
       }
     }
   }
+
   Game.prototype.switchPlayers = function() {
     if(this.currentPlayer === "red"){
       this.currentPlayer = "black"

@@ -2,6 +2,8 @@ var game = new Game();
 
 $(document).ready(function(){
 
+  $('#0').on('click', function(){
+    placePieceOnBoard(this)
   $('#1').on('click', function(){
     placePieceOnBoard(this)
   })
@@ -20,14 +22,16 @@ $(document).ready(function(){
   $('#6').on('click', function(){
     placePieceOnBoard(this)
   })
-  $('#0').on('click', function(){
-    placePieceOnBoard(this)
-  })
 
 });
 
 var placePieceOnBoard = function(button){
   // debugger
   game.placePiece(button.id);
-  // debugger
+
+  if (game.winner()){
+    alert(game.currentPlayer + " is the winner!")
+  }
+
 };
+
