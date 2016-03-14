@@ -35,6 +35,7 @@ body {
   display: inline-flex;
   flex-direction: column-reverse;
   background-image: url("pics/connect4column.gif");
+  background-repeat: no-repeat;
   width: 95px;
   height: 480px;
   vertical-align: top;

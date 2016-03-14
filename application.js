@@ -1,23 +1,31 @@
 $(document).ready(function(){
   $('#black').hide();
   $('#red').hide();
-  var game = new window.Game();
+  window.game = new window.Game();
   var placePieceOnBoard = function(column){
       game.placePiece(column);
     };
-  $('#columnButton1').on('click', function(){
-      var currentPlayer = game.currentPlayer
-      placePieceOnBoard(0);
-      $('#column1').append(
-   '<img class="token" id="' + currentPlayer +'" src="pics/' + currentPlayer + '.gif"/>'
-        );
-      });
-  // $('game.currentPlayer').append(this);
-  // $('columnButton2').on('click', placePieceOnBoard);
-  // $('columnButton3').on('click', placePieceOnBoard);
-  // $('columnButton4').on('click', placePieceOnBoard);
-  // $('columnButton5').on('click', placePieceOnBoard);
-  // $('columnButton6').on('click', placePieceOnBoard);
-  // $('columnButton7').on('click', placePieceOnBoard);
+
+    //https://jslinterrors.com/dont-make-functions-within-a-loop
+    for (var i = 0; i < 7; i++ ) {
+      (function(iCopy) {
+        $('#columnButton' + i).on('click', function(){
+          var currentPlayer = game.currentPlayer
+          placePieceOnBoard(iCopy);
+            $('#column' + iCopy).append(
+       '<img class="token" id="' + currentPlayer +'" src="pics/' + currentPlayer + '.gif"/>'
+            );
+          });
+    }(i))
+  }
+  $('#restart').on('click', function(){
+    $('.column').animate({height: "960px"}, "slow")
+    $('.token').animate({opacity: 0}, "slow")
+    setTimeout(function(){
+      $('.token').remove()
+    }, 1000)
+    $('.column').animate({height: "480px"})
+    window.game = new window.Game();
+  })
 });
 
