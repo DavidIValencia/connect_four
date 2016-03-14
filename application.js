@@ -4,6 +4,7 @@ $(document).ready(function(){
 
   $('#0').on('click', function(){
     placePieceOnBoard(this)
+  })
   $('#1').on('click', function(){
     placePieceOnBoard(this)
   })
@@ -30,8 +31,12 @@ var placePieceOnBoard = function(button){
   game.placePiece(button.id);
 
   if (game.winner()){
-    alert(game.currentPlayer + " is the winner!")
-  }
+    game.switchPlayers();
+    alert(game.currentPlayer + " is the winner!");
+    if (confirm("Start a new game!")) {
+    location.reload();
+    }
+    }
 
 };
 
