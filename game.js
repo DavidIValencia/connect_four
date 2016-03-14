@@ -7,7 +7,6 @@ Game = function(){
     for(var row= 0; row < this.board.length; row ++) {
       if(row == 5 || this.board[row + 1][column] !== null) {
         this.board[row][column] = this.currentPlayer
-        debugger
         $("#"+this.currentPlayer+"-"+column.toString()+row.toString()).show()
         this.switchPlayers()
         return

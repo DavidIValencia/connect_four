@@ -20,7 +20,7 @@ $(document).ready(function(){
   $('#6').on('click', function(){
     placePieceOnBoard(this)
   })
-  $('#7').on('click', function(){
+  $('#0').on('click', function(){
     placePieceOnBoard(this)
   })
 
