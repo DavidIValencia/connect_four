@@ -14,7 +14,8 @@ h1 {
   height: 76.5px;
   width: 76px;
   margin-left: 10px;
-  margin-bottom: 3px;
+  /*margin-bottom: 3px;*/
+  margin-bottom: 1000px;
 }
 
 .place-token{
@@ -62,5 +63,3 @@ body {
   color: #FF66FF;
   height: 1em;
 }
-
-

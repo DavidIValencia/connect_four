@@ -20,17 +20,19 @@ $(document).ready(function(){
           if(placedPiece) {
                 $('#column' + iCopy).append('<img class="token" id="' + currentPlayer +'" src="pics/' + currentPlayer + '.gif"/>');
             }
+            $(".token").animate({"margin-bottom": "3px"}, "slow")
           });
     }(i))
   }
   $('#restart').on('click', function(){
-    $('.column').animate({height: "960px"}, "slow")
+    $(".place-token").prop("disabled", true)
+    $('.column').animate({height: "980px"}, "slow")
     $('.token').animate({opacity: 0}, "slow")
     setTimeout(function(){
       $('.token').remove()
+      $('.column').animate({height: "480px"})
       $(".place-token").prop("disabled", false)
     }, 1000)
-    $('.column').animate({height: "480px"})
     window.game = new window.Game();
     $('#game-status').html("")
   })
