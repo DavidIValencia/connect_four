@@ -11,7 +11,10 @@ h1 {
 
 .token {
   height: 70px;
+  width: 68px;
   display: block;
+  margin: 5px ;
+/*  background-color: FF66FF;*/
 }
 
 .place-token{
@@ -27,11 +30,11 @@ body {
   background-color: #F6F6F6;
 }
 
-#column1{
- border: black solid 1px;
 
+.column{
+  height: 480px;
+  background-image: url("pics/connect4column.gif");
+/*  background-repeat: no-repeat;*/
+  border: black solid;
 }
 
-#column2{
- border: black solid 1px;
-}
