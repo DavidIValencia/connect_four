@@ -1,8 +1,7 @@
 var game = new Game();
 
 $(document).ready(function(){
-  $('#black').hide();
-  $('#red').hide();
+
   $('#0').on('click', function(){
     placePieceOnBoard(this)
   })
@@ -24,15 +23,20 @@ $(document).ready(function(){
   $('#6').on('click', function(){
     placePieceOnBoard(this)
   })
+
 });
 
 var placePieceOnBoard = function(button){
   // debugger
   game.placePiece(button.id);
 
-  $('#'+game.currentPlayer).clone().prependTo('#column'+button.id).show();
   if (game.winner()){
-    alert(game.currentPlayer + " is the winner!")
-  }
+    game.switchPlayers();
+    alert(game.currentPlayer + " is the winner!");
+    if (confirm("Start a new game!")) {
+    location.reload();
+    }
+    }
+
 };
 
