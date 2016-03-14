@@ -4,6 +4,10 @@ $(document).ready(function(){
   window.game = new window.Game();
   var placePieceOnBoard = function(column){
       game.placePiece(column);
+       if (game.winner()){
+          alert(game.winner() + " is the winner!");
+          $(".place-token").prop("disabled", true)
+        }
     };
 
     //https://jslinterrors.com/dont-make-functions-within-a-loop
@@ -11,10 +15,10 @@ $(document).ready(function(){
       (function(iCopy) {
         $('#columnButton' + i).on('click', function(){
           var currentPlayer = game.currentPlayer
-          placePieceOnBoard(iCopy);
             $('#column' + iCopy).append(
        '<img class="token" id="' + currentPlayer +'" src="pics/' + currentPlayer + '.gif"/>'
             );
+          placePieceOnBoard(iCopy);
           });
     }(i))
   }
@@ -23,6 +27,7 @@ $(document).ready(function(){
     $('.token').animate({opacity: 0}, "slow")
     setTimeout(function(){
       $('.token').remove()
+      $(".place-token").prop("disabled", false)
     }, 1000)
     $('.column').animate({height: "480px"})
     window.game = new window.Game();
