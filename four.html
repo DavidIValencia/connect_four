@@ -1,137 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- <script src="javascripts/vendor/jquery-2.1.1.min.js"></script>
-  <script src="javascripts/src/typed-objects.js"></script> -->
-  <!-- feel free to replace typed-objects with the plain-old-js-objects,
-  depending on how you implement your view.js -->
-
-  <link rel="stylesheet" type="text/css" href="connect.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script type="text/javascript" src='game.js'></script>
-  <script type="text/javascript" src='application.js'></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="application.js"></script>
+  <link rel="stylesheet" type="text/css" href="connect.css">
 </head>
 <body>
   <header>
-    <h1>CONNECT FOUR!<h1>
+    <h1>David is the Prettiest Princess!</h1>
+    <div id="game-status"></div>
+  <div id="restart-wrapper"><button id="restart">Restart Game</button></div>
   </header>
 
-  <table class="board">
-    <tr>
-      <td>
-        <img src="pics/connect4column.gif"/>
-        <img id="red-05" class='token' src="pics/circle-513.gif"/>
-        <img id="red-15" class='token' src="pics/circle-513.gif"/>
-        <img id="red-25" class='token' src="pics/circle-513.gif"/>
-        <img id="red-35" class='token' src="pics/circle-513.gif"/>
-        <img id="red-45" class='token' src="pics/circle-513.gif"/>
-        <img id="red-55" class='token' src="pics/circle-513.gif"/>
-        <img id="red-65" class='token' src="pics/circle-513.gif"/>
-        <img id="black-05" class='token' src="pics/circle-512.gif"/>
-        <img id="black-15" class='token' src="pics/circle-512.gif"/>
-        <img id="black-25" class='token' src="pics/circle-512.gif"/>
-        <img id="black-35" class='token' src="pics/circle-512.gif"/>
-        <img id="black-45" class='token' src="pics/circle-512.gif"/>
-        <img id="black-55" class='token' src="pics/circle-512.gif"/>
-        <img id="black-65" class='token' src="pics/circle-512.gif"/>
-      </td>
-      <td>
-        <img src="pics/connect4column.gif"/>
-        <img id="red-04" class='token' src="pics/circle-513.gif"/>
-        <img id="red-14" class='token' src="pics/circle-513.gif"/>
-        <img id="red-24" class='token' src="pics/circle-513.gif"/>
-        <img id="red-34" class='token' src="pics/circle-513.gif"/>
-        <img id="red-44" class='token' src="pics/circle-513.gif"/>
-        <img id="red-54" class='token' src="pics/circle-513.gif"/>
-        <img id="red-64" class='token' src="pics/circle-513.gif"/>
-        <img id="black-04" class='token' src="pics/circle-512.gif"/>
-        <img id="black-14" class='token' src="pics/circle-512.gif"/>
-        <img id="black-24" class='token' src="pics/circle-512.gif"/>
-        <img id="black-34" class='token' src="pics/circle-512.gif"/>
-        <img id="black-44" class='token' src="pics/circle-512.gif"/>
-        <img id="black-54" class='token' src="pics/circle-512.gif"/>
-        <img id="black-64" class='token' src="pics/circle-512.gif"/>
-      </td>
-      <td>
-        <img src="pics/connect4column.gif"/>
-        <img id="red-03" class='token' src="pics/circle-513.gif"/>
-        <img id="red-13" class='token' src="pics/circle-513.gif"/>
-        <img id="red-23" class='token' src="pics/circle-513.gif"/>
-        <img id="red-33" class='token' src="pics/circle-513.gif"/>
-        <img id="red-43" class='token' src="pics/circle-513.gif"/>
-        <img id="red-53" class='token' src="pics/circle-513.gif"/>
-        <img id="red-63" class='token' src="pics/circle-513.gif"/>
-        <img id="black-03" class='token' src="pics/circle-512.gif"/>
-        <img id="black-13" class='token' src="pics/circle-512.gif"/>
-        <img id="black-23" class='token' src="pics/circle-512.gif"/>
-        <img id="black-33" class='token' src="pics/circle-512.gif"/>
-        <img id="black-43" class='token' src="pics/circle-512.gif"/>
-        <img id="black-53" class='token' src="pics/circle-512.gif"/>
-        <img id="black-63" class='token' src="pics/circle-512.gif"/>
-      </td>
-      <td>
-        <img src="pics/connect4column.gif"/>
-        <img id="red-02" class='token' src="pics/circle-513.gif"/>
-        <img id="red-12" class='token' src="pics/circle-513.gif"/>
-        <img id="red-22" class='token' src="pics/circle-513.gif"/>
-        <img id="red-32" class='token' src="pics/circle-513.gif"/>
-        <img id="red-42" class='token' src="pics/circle-513.gif"/>
-        <img id="red-52" class='token' src="pics/circle-513.gif"/>
-        <img id="red-62" class='token' src="pics/circle-513.gif"/>
-        <img id="black-02" class='token' src="pics/circle-512.gif"/>
-        <img id="black-12" class='token' src="pics/circle-512.gif"/>
-        <img id="black-22" class='token' src="pics/circle-512.gif"/>
-        <img id="black-32" class='token' src="pics/circle-512.gif"/>
-        <img id="black-42" class='token' src="pics/circle-512.gif"/>
-        <img id="black-52" class='token' src="pics/circle-512.gif"/>
-        <img id="black-62" class='token' src="pics/circle-512.gif"/>
-      </td>
-      <td>
-        <img src="pics/connect4column.gif"/>
-        <img id="red-01" class='token' src="pics/circle-513.gif"/>
-        <img id="red-11" class='token' src="pics/circle-513.gif"/>
-        <img id="red-21" class='token' src="pics/circle-513.gif"/>
-        <img id="red-31" class='token' src="pics/circle-513.gif"/>
-        <img id="red-41" class='token' src="pics/circle-513.gif"/>
-        <img id="red-51" class='token' src="pics/circle-513.gif"/>
-        <img id="red-61" class='token' src="pics/circle-513.gif"/>
-        <img id="black-01" class='token' src="pics/circle-512.gif"/>
-        <img id="black-11" class='token' src="pics/circle-512.gif"/>
-        <img id="black-21" class='token' src="pics/circle-512.gif"/>
-        <img id="black-31" class='token' src="pics/circle-512.gif"/>
-        <img id="black-41" class='token' src="pics/circle-512.gif"/>
-        <img id="black-51" class='token' src="pics/circle-512.gif"/>
-        <img id="black-61" class='token' src="pics/circle-512.gif"/>
-      </td>
-      <td>
-        <img src="pics/connect4column.gif"/>
-        <img id="red-00" class='token' src="pics/circle-513.gif"/>
-        <img id="red-10" class='token' src="pics/circle-513.gif"/>
-        <img id="red-20" class='token' src="pics/circle-513.gif"/>
-        <img id="red-30" class='token' src="pics/circle-513.gif"/>
-        <img id="red-40" class='token' src="pics/circle-513.gif"/>
-        <img id="red-50" class='token' src="pics/circle-513.gif"/>
-        <img id="red-60" class='token' src="pics/circle-513.gif"/>
-        <img id="black-00" class='token' src="pics/circle-512.gif"/>
-        <img id="black-10" class='token' src="pics/circle-512.gif"/>
-        <img id="black-20" class='token' src="pics/circle-512.gif"/>
-        <img id="black-30" class='token' src="pics/circle-512.gif"/>
-        <img id="black-40" class='token' src="pics/circle-512.gif"/>
-        <img id="black-50" class='token' src="pics/circle-512.gif"/>
-        <img id="black-60" class='token' src="pics/circle-512.gif"/>
-      </td>
-      <td>
-        <img src="pics/connect4column.gif"/>
-      </td>
+  <div>
+   <img class='token' id="black" src="pics/black.gif"/>
+   <img class='token' id="red" src="pics/red.gif"/>
+  </div>
 
-    <tr>
-      <td><button id="0" type="submit" class="place-token">Place token</button></td>
-      <td><button id="1" type="submit" class="place-token">Place token</button></td>
-      <td><button id="2" type="submit" class="place-token">Place token</button></td>
-      <td><button id="3" type="submit" class="place-token">Place token</button></td>
-      <td><button id="4" type="submit" class="place-token">Place token</button></td>
-      <td><button id="5" type="submit" class="place-token">Place token</button></td>
-      <td><button id="6" type="submit" class="place-token">Place token</button></td>
-    </tr>
+  <div class="board">
+    <div>
+      <button id="columnButton0" type="submit" class="place-token">Place token</button>
+      <button id="columnButton1" type="submit" class="place-token">Place token</button>
+      <button id="columnButton2" type="submit" class="place-token">Place token</button>
+      <button id="columnButton3" type="submit" class="place-token">Place token</button>
+      <button id="columnButton4" type="submit" class="place-token">Place token</button>
+      <button id="columnButton5" type="submit" class="place-token">Place token</button>
+      <button id="columnButton6" type="submit" class="place-token">Place token</button>
+    </div>
+    <div>
+      <div class="column" id="column0"></div>
+      <div class="column" id="column1"></div>
+      <div class="column" id="column2"></div>
+      <div class="column" id="column3"></div>
+      <div class="column" id="column4"></div>
+      <div class="column" id="column5"></div>
+      <div class="column" id="column6"></div>
+    </div>
+  </div>
+
+
 </body>
 </html>
